@@ -7,7 +7,7 @@ let arr = Array.from(buttons);
 arr.forEach(button => {
     button.addEventListener('click', (e) => {
         if (e.target.innerHTML == '=') {
-            expression = eval(expression);
+            expression = eval(expression).toString();
             input.value = expression;
             evaluated = true;
         }
