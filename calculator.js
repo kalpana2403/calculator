@@ -1,35 +1,35 @@
 let input = document.getElementById('inputbox');
 let buttons = document.querySelectorAll('button');
 
-let string = "";
+let expression = "";
 let evaluated = false;
 let arr = Array.from(buttons);
 arr.forEach(button => {
     button.addEventListener('click', (e) => {
         if (e.target.innerHTML == '=') {
-            string = eval(string);
-            input.value = string;
+            expression = eval(expression);
+            input.value = expression;
             evaluated = true;
         }
 
         else if (e.target.innerHTML == 'AC') {
-            string = "";
-            input.value = string;
+            expression = "";
+            input.value = expression;
             evaluated = false;
         }
 
         else if (e.target.innerHTML == 'DEL') {
-            string = string.substring(0, string.length - 1);
-            input.value = string;
+            expression = expression.substring(0, expression.length - 1);
+            input.value = expression;
             evaluated = false;
         }
 
         else {
 			if (evaluated && !isNaN(e.target.innerHTML)) {
-				string = "";
+				expression = "";
 			}
-            string += e.target.innerHTML;
-            input.value = string;
+            expression += e.target.innerHTML;
+            input.value = expression;
             evaluated = false;
         }
 
